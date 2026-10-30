@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --bg-main: #F3F4EE;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #17211D;
+  --text-primary: #1D2823;
+  --text-secondary: #68756C;
+  --sage-green: #DCE7D8;
+  --forest-green: #397553;
+  --pale-green: #E7F2E7;
+  --warning-amber: #D49A35;
+  --error-red: #C95656;
+  --border: #E2E7DF;
+  --water-accent: #83D9D5;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@theme inline {
+  --color-bg-main: var(--bg-main);
+  --color-bg-card: var(--bg-card);
+  --color-bg-sidebar: var(--bg-sidebar);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-sage: var(--sage-green);
+  --color-forest: var(--forest-green);
+  --color-pale-green: var(--pale-green);
+  --color-warning: var(--warning-amber);
+  --color-error: var(--error-red);
+  --color-border: var(--border);
+  --color-water: var(--water-accent);
+  --color-background: var(--bg-main);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Liquid ripple animation */
+@keyframes liquid-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes liquid-wave {
+  0% {
+    transform: translateX(-100%) scaleY(1);
+  }
+  50% {
+    transform: translateX(0%) scaleY(1.02);
+  }
+  100% {
+    transform: translateX(100%) scaleY(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-liquid-ripple {
+  animation: liquid-ripple 0.8s ease-out forwards;
+}
+
+.animate-liquid-wave {
+  animation: liquid-wave 1.2s ease-in-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-liquid-ripple,
+  .animate-liquid-wave,
+  .animate-float,
+  .animate-pulse-soft {
+    animation: none !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* SVG Liquid Filter */
+.liquid-filter {
+  filter: url(#liquid-distortion);
+}
