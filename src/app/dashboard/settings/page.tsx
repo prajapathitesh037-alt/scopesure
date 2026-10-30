@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import { AppHeader } from '@/components/layout/app-header';
 import { LiquidButton } from '@/components/liquid/liquid-button';
-import { Settings, Sliders, Shield, Droplets, Bell, Save, CheckCircle2 } from 'lucide-react';
+import { Settings, Sliders, Shield, Droplets, Bell, Save, CheckCircle2, User } from 'lucide-react';
+import { SignOutButton } from '@/components/auth/sign-out-button';
 
 export default function SettingsPage() {
   const [saved, setSaved] = useState(false);
@@ -141,6 +142,23 @@ export default function SettingsPage() {
                   Immediately flag explicit line-item exclusions in quotation notifications
                 </span>
               </label>
+            </div>
+          </div>
+
+          {/* Section 4: Account & Security */}
+          <div className="rounded-2xl border border-border bg-white p-6 shadow-xs space-y-4">
+            <h2 className="text-sm font-bold text-text-primary flex items-center gap-2">
+              <User className="h-4 w-4 text-forest" />
+              Auditor Session & Security
+            </h2>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs bg-[#FAFBF9] p-4 rounded-xl border border-border">
+              <div>
+                <p className="font-semibold text-text-primary">Current Supabase Session</p>
+                <p className="text-text-secondary text-[11px] mt-0.5">
+                  Your session is authenticated and protected with Row-Level Security policies.
+                </p>
+              </div>
+              <SignOutButton variant="full" />
             </div>
           </div>
 

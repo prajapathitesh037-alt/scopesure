@@ -12,6 +12,7 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { LiquidSurface } from '@/components/liquid/liquid-surface';
+import { SignOutButton } from '@/components/auth/sign-out-button';
 
 const navItems = [
   { label: 'Dashboard', href: '/dashboard', icon: LayoutGrid },
@@ -77,8 +78,8 @@ export function AppSidebar() {
         })}
       </nav>
 
-      {/* Bottom Chevron Arrow Pill */}
-      <div className="pb-1.5">
+      {/* Bottom Actions: Comparison Shortcut & Sign Out */}
+      <div className="pb-1.5 flex flex-col items-center gap-2">
         <Link href="/dashboard/comparison" aria-label="Expand audit details">
           <LiquidSurface
             intensity="subtle"
@@ -87,6 +88,8 @@ export function AppSidebar() {
             <ChevronRight className="h-4 w-4" />
           </LiquidSurface>
         </Link>
+
+        <SignOutButton />
       </div>
     </aside>
   );

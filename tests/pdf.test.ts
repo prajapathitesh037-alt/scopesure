@@ -14,3 +14,4 @@ describe('PDF Text Extraction & Normalization', () => {
     expect(normalizeExtractedText('   \n  \t  \n  ')).toBe('');
   });
 });
+

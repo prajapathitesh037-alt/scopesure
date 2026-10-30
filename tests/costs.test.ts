@@ -84,3 +84,4 @@ describe('Cost Calculation Engine', () => {
     expect(result.auditWarnings.some((w) => w.includes('Currency Mismatch'))).toBe(true);
   });
 });
+

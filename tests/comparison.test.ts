@@ -143,3 +143,4 @@ describe('Deterministic Vendor Comparison Engine', () => {
     expect(freightEval?.detail).toContain('Conflicting statements');
   });
 });
+
